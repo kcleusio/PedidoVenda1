@@ -1,0 +1,50 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Pesquisa de pedidos</ui:define>
+
+    <ui:define name="corpo">
+        <h1>Pesquisa de pedidos</h1>
+
+        <p:toolbar style="margin-top: 20px">
+            <p:toolbarGroup>
+                <p:commandButton value="Pesquisa"/>
+            </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <p:button value="Novo"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+        <h:form>
+            <p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+                         columnClasses="rotulo, campo">
+                <p:outputLabel value="Nome"/>
+                <p:inputText size="50"/>
+
+            </p:panelGrid>
+
+            <!-- Tabela de dados-->
+            <p:dataTable id="usuariosTable" value="#{pesquisaPedidosBean.pedidosFiltrados}" var="usuarios"
+                         style="margin-top: 20px" emptyMessage="Nenhum pedido encontrado." rows="10" paginator="true"
+                         paginatorAlwaysVisible="false"
+                         paginatorPosition="bottom">
+
+                <p:column headerText="Nome" style="text-align: left; width: auto;">
+                    <h:outputText value="Helder Daniel hihihihihihihihi"/>
+                </p:column>
+
+                <p:column headerText="Email" style="text-align: left; width:auto;">
+                    <h:outputText value="kcleusio"/>
+                </p:column>
+
+                <p:column style="text-align: center; width: 100px">
+                    <p:button icon="ui-icon-pencil" title="Editar"/>
+                    <p:commandButton icon="ui-icon-trash" title="Eliminar"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

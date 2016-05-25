@@ -1,0 +1,93 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Novo Clente</ui:define>
+
+    <ui:define name="corpo">
+        <h1>Novo Cliente</h1>
+
+        <p:toolbar style="margin-top: 20px">
+            <p:toolbarGroup>
+                <p:button value="Novo" outcome="/Clientes/CadastroCliente"/>
+                <p:commandButton value="Salvar" id="botaoSalvar"/>
+            </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <p:button value="Pesquisar" outcome="/Clientes/PesquisaClientes"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+
+        <p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+                     columnClasses="rotulo, campo">
+
+            <p:outputLabel value="Nome" for="nome"/>
+            <p:inputText id="nome" size="60" maxlength="80"/>
+
+            <p:outputLabel value="Tipo" for="tipo"/>
+            <p:selectOneRadio id="tipo" styleClass="meu-radio">
+                <f:selectItem itemLabel="Física" itemValue="Física"/>
+                <f:selectItem itemLabel="Juridíca" itemValue="Juridíca"/>
+            </p:selectOneRadio>
+
+            <p:outputLabel value="CNPJ" for="cnpj"/>
+            <p:inputMask id="cnpj" value="" mask="99-9999-9999-9"/>
+
+            <p:outputLabel value="Email" for="email"/>
+            <p:inputText id="email" size="60" maxlength="80"/>
+        </p:panelGrid>
+
+        <p:button id="adicionaEndereco" value="Adicionar Endereço" style="margin-top: 20px"
+                  oncomplete="incluirClienteDialog.show()"/>
+
+        <p:dataTable id="tabelaInclusaoProduto" var="tabelaInclu" emptyMessage="Nenhum dado carregado"
+                     style="margin-top: 10px" rows="20" paginator="true"
+                     paginatorAlwaysVisible="false"
+                     paginatorPosition="bottom">
+            <p:column headerText="Logradouro" style="text-align: center; width: 100px">
+                <h:outputText value="Rua anón"/>
+            </p:column>
+            <p:column headerText="Numero" style="text-align: center; width: 100px">
+                <h:outputText size="25"/>
+            </p:column>
+            <p:column headerText="Complemento" style="text-align: center; width: 100px">
+                <h:outputText size="25"/>
+                <p:column headerText="CEP" style="text-align: center; width: 100px">
+                    <h:outputText size="25"/>
+                </p:column>
+                <p:column headerText="Cidade" style="text-align: center; width: 100px">
+                    <h:outputText size="25"/>
+                </p:column>
+                <p:column headerText="UF" style="text-align: center; width: 100px"/>
+                <h:outputText size="25"/>
+            </p:column>
+            <p:column style="text-align: center;width: 80px">
+                <p:button icon="ui-icon-pencil" title="Editar"/>
+                <p:commandButton title="Apagar" icon="ui-icon-trash"/>
+            </p:column>
+        </p:dataTable>
+
+        <p:dialog header="Inclusão de Cliente"
+                  widgetVar="incluirClienteDialog" draggable="true" resizable="false"
+                  modal="false" minimizable="true" maximizable="true"
+                  showEffect="shake" hideEffect="explode">
+            <h:panelGroup>
+                <p:messages/>
+                <h:panelGrid columns="2">
+                    <p:outputLabel value="Nome"/>
+                    <p:inputText value=""
+                                 required="true" requiredMessage="Informe o nome do Cliente."
+                                 maxlength="50" size="40"/>
+
+                    <p:outputLabel value="Telefone"/>
+                    <p:inputText value=""
+                                 required="true" requiredMessage="Informe o telefone do Cliente."
+                                 maxlength="15" size="15"/>
+                </h:panelGrid>
+                <p:commandButton value="Incluir"/>
+            </h:panelGroup>
+        </p:dialog>
+    </ui:define>
+</ui:composition>

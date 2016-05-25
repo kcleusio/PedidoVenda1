@@ -1,0 +1,53 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="titulo">Pesquisa de Clientes</ui:define>
+
+    <ui:define name="corpo">
+        <h1>Pesquisa de Clientes</h1>
+
+        <p:toolbar style="margin-top: 20px">
+            <p:toolbarGroup>
+                <p:commandButton value="Pesquisar"/>
+            </p:toolbarGroup>
+            <p:toolbarGroup align="right">
+                <p:button value="Novo" outcome="/Clientes/CadastroCliente"/>
+            </p:toolbarGroup>
+        </p:toolbar>
+
+        <h:form>
+            <p:panelGrid columns="2" id="painel" style="width: 100%; margin-top: 20px"
+                         columnClasses="rotulo, campo">
+                <p:outputLabel value="CPF/CNPJ"/>
+                <p:inputText/>
+                <p:outputLabel value="Nome"/>
+                <p:inputText size="50"/>
+            </p:panelGrid>
+
+            <!-- Tabela de dados-->
+            <p:dataTable id="clientesTable" value="#{pesquisaPedidosBean.pedidosFiltrados}" var="clientes"
+                         style="margin-top: 20px" emptyMessage="Nenhum cliente encontrado." rows="20" paginator="true"
+                         paginatorAlwaysVisible="false"
+                         paginatorPosition="bottom">
+                <p:column headerText="Nome" style="text-align: left; width: auto">
+                    <h:outputText value="Super Mercado KERO"/>
+                </p:column>
+                <p:column headerText="Tipo" style="text-align: center; width: 100px">
+                    <h:outputText value="Jurídica"/>
+                </p:column>
+                <p:column headerText="CPF/CNPJ" style="text-align: center; width: 100px;">
+                    <h:outputText value="9897845737.00"/>
+                </p:column>
+
+                <p:column style="text-align: center;width: 80px">
+                    <p:button icon="ui-icon-pencil" title="Editar"/>
+                    <p:commandButton icon="ui-icon-trash" title="Eliminar"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
