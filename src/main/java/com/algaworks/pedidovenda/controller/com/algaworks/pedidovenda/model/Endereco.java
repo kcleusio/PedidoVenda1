@@ -1,7 +1,10 @@
 package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "endereco")
 public class Endereco implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -15,6 +18,8 @@ public class Endereco implements Serializable {
 	private String cep;
 	private Cliente cliente;
 
+	@Id
+	@GeneratedValue
 	public Long getId() {
 		return id;
 	}
@@ -71,6 +76,8 @@ public class Endereco implements Serializable {
 		this.cep = cep;
 	}
 
+    //relacionamento de um para muitos com a tabela clientes
+	@ManyToOne
 	public Cliente getCliente() {
 		return cliente;
 	}
