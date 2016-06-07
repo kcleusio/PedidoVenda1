@@ -1,9 +1,12 @@
 package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -13,35 +16,44 @@ public class Usuario implements Serializable {
 	private String email;
 	private String senha;
 	private List<Grupo> grupos = new ArrayList<>();
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
+	@Column(nullable = false, length = 80)
 	public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	@Column(nullable = false, unique = true, length = 255)
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	@Column(nullable = false, length = 20)
 	public String getSenha() {
 		return senha;
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "usuario_grupo", joinColumns = @JoinColumn(name="usuario_id"),
+			inverseJoinColumns = @JoinColumn(name = "grupo_id"))
 	public List<Grupo> getGrupos() {
 		return grupos;
 	}

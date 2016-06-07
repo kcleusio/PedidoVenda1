@@ -44,6 +44,7 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
+    @Column(name = "doc_receita_federal", nullable = false, length = 14)
     public String getDocumentoReceitaFederal() {
         return documentoReceitaFederal;
     }
@@ -52,6 +53,8 @@ public class Cliente implements Serializable {
         this.documentoReceitaFederal = documentoReceitaFederal;
     }
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10)
     public TipoPessoa getTipo() {
         return tipo;
     }
@@ -61,6 +64,7 @@ public class Cliente implements Serializable {
     }
 
     //relacionamento de um para muitos com a tabela Endereços
+
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     public List<Endereco> getEnderecos() {
         return enderecos;
