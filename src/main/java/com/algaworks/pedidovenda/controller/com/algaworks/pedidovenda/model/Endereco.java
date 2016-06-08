@@ -3,6 +3,7 @@ package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
+//mapeamentos
 @Entity
 @Table(name = "endereco")
 public class Endereco implements Serializable {
