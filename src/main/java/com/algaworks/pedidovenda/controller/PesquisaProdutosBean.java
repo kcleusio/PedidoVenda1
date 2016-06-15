@@ -2,12 +2,14 @@ package com.algaworks.pedidovenda.controller;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
-@RequestScoped
-public class PesquisaProdutosBean {
+@ViewScoped
+public class PesquisaProdutosBean implements Serializable {
 
 	private List<Integer> produtosFiltrados;
 	
