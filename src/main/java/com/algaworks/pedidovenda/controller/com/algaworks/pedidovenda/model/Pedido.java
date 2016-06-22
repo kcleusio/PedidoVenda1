@@ -1,6 +1,7 @@
 package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -37,6 +38,7 @@ public class Pedido implements Serializable {
 		this.id = id;
 	}
 
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "data_criacao", nullable = false)
 	public Date getDataCriacao() {
@@ -93,6 +95,7 @@ public class Pedido implements Serializable {
 		this.valorTotal = valorTotal;
 	}
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false, length = 20)
 	public StatusPedido getStatus() {
@@ -103,6 +106,7 @@ public class Pedido implements Serializable {
 		this.status = status;
 	}
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(name = "forma_pagamento", nullable = false, length = 20)
 	public FormaPagamento getFormaPagamento() {
@@ -113,6 +117,7 @@ public class Pedido implements Serializable {
 		this.formaPagamento = formaPagamento;
 	}
 
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "vendedor_id", nullable = false)
 	public Usuario getVendedor() {
