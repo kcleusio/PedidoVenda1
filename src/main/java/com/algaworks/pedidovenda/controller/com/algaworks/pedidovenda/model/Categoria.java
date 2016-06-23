@@ -1,6 +1,9 @@
 package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +30,7 @@ public class Categoria implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank
 	@Column(nullable = false, length = 60)
 	public String getDescricao() {
 		return descricao;

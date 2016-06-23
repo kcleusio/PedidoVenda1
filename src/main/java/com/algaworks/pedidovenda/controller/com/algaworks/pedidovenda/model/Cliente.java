@@ -1,5 +1,6 @@
 package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -41,6 +42,7 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
+    @Length(max = 40)
     public String getEmail() {
         return email;
     }
@@ -49,6 +51,7 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
+    @NotBlank
     @Column(name = "doc_receita_federal", nullable = false, length = 14)
     public String getDocumentoReceitaFederal() {
         return documentoReceitaFederal;
@@ -58,6 +61,7 @@ public class Cliente implements Serializable {
         this.documentoReceitaFederal = documentoReceitaFederal;
     }
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 10)
     public TipoPessoa getTipo() {
