@@ -7,8 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Categoria;
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Produto;
+import com.algaworks.pedidovenda.model.Categoria;
+import com.algaworks.pedidovenda.model.Produto;
 
 public class TesteProduto {
 

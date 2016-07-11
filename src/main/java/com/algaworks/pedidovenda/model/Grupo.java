@@ -1,4 +1,6 @@
-package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
+package com.algaworks.pedidovenda.model;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +25,7 @@ public class Grupo implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank(message = "Nome não deve ser vazio")
 	@Column(nullable=false, length=40)
 	public String getNome() {
 		return nome;
@@ -32,6 +35,7 @@ public class Grupo implements Serializable {
 		this.nome = nome;
 	}
 
+	@NotBlank(message = "A descrição não deve estar vazia!")
 	@Column(nullable=false, length=80)
 	public String getDescricao() {
 		return descricao;

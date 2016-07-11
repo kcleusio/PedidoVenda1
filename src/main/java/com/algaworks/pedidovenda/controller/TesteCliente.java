@@ -5,9 +5,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Cliente;
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Endereco;
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.TipoPessoa;
+import com.algaworks.pedidovenda.model.Cliente;
+import com.algaworks.pedidovenda.model.Endereco;
+import com.algaworks.pedidovenda.model.TipoPessoa;
 
 public class TesteCliente {
 

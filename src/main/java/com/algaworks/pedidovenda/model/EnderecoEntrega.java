@@ -1,4 +1,6 @@
-package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
+package com.algaworks.pedidovenda.model;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -43,6 +45,7 @@ public class EnderecoEntrega implements Serializable {
 		this.complemento = complemento;
 	}
 
+	@NotBlank(message = "A cidade de entrega não deve estar vazio")
 	@Column(name = "entrega_cidade", nullable = false, length = 60)
 	public String getCidade() {
 		return cidade;

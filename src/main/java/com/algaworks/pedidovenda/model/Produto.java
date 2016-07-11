@@ -1,9 +1,12 @@
-package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
+package com.algaworks.pedidovenda.model;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -30,6 +33,7 @@ public class Produto implements Serializable {
 		this.id = id;
 	}
 
+	@NotBlank
 	@Column(nullable = false, length = 80)
 	public String getNome() {
 		return nome;
@@ -39,6 +43,7 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
+	@NotBlank @Pattern(regexp="([a-z]{2}\\d{4,18})")
 	@Column(nullable = false, length = 20, unique = true)
 	public String getSku() {
 		return sku;

@@ -1,4 +1,4 @@
-package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
+package com.algaworks.pedidovenda.model;
 
 public enum FormaPagamento {
 

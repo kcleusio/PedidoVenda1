@@ -1,8 +1,8 @@
 package com.algaworks.pedidovenda.controller;
 
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Cliente;
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Endereco;
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.TipoPessoa;
+import com.algaworks.pedidovenda.model.Cliente;
+import com.algaworks.pedidovenda.model.Endereco;
+import com.algaworks.pedidovenda.model.TipoPessoa;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

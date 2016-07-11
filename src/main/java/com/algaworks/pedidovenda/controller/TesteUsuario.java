@@ -5,8 +5,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Grupo;
-import com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model.Usuario;
+import com.algaworks.pedidovenda.model.Grupo;
+import com.algaworks.pedidovenda.model.Usuario;
 
 public class TesteUsuario {
 

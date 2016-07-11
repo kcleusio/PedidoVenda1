@@ -1,4 +1,4 @@
-package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
+package com.algaworks.pedidovenda.model;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;

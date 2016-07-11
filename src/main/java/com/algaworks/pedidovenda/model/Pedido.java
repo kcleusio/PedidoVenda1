@@ -1,4 +1,4 @@
-package com.algaworks.pedidovenda.controller.com.algaworks.pedidovenda.model;
+package com.algaworks.pedidovenda.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
