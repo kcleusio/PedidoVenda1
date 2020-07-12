@@ -1,6 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="war" name="PedidoVenda:war">
     <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>PedidoVenda</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="archive" name="PedidoVenda.war">
       <element id="artifact" artifact-name="PedidoVenda:war exploded" />
     </root>
